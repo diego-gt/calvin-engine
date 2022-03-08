@@ -3,23 +3,24 @@
 #include "utils/Visibility.hpp"
 
 namespace usc::math {
-enum AngleType { Radians, Degrees };
+enum AngleType { Radians,
+    Degrees };
 
 class API_EXPORT Angle {
 public:
-  Angle(double value, AngleType at);
-  Angle() = default;
+    Angle(double value, AngleType at);
+    Angle() = default;
 
-  // Get angle value in Degrees
-  double Degrees();
-  // Get angle value in Radians
-  double Radians();
+    // Get angle value in Degrees
+    double Degrees();
+    // Get angle value in Radians
+    double Radians();
 
-  // Change angle value
-  void Set(double value, AngleType at);
+    // Change angle value
+    void Set(double value, AngleType at);
 
 private:
-  double m_degrees{0}, m_radians{0};
+    double m_degrees { 0 }, m_radians { 0 };
 };
 } // namespace usc::math
 
