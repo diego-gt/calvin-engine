@@ -7,14 +7,14 @@ project(
     'cpp_std=c++20'
     ])
 
-engine_includes = include_directories('core/include')
+engine_includes = include_directories('include')
 
 engine_sources = files([
-  'core/src/math/Angle.cpp',
-  'core/src/math/Coordinates.cpp',
-  'core/src/math/Links.cpp',
-  'core/src/math/Vectors.cpp',
-  'core/src/utils/Print.cpp'
+  'src/math/Angle.cpp',
+  'src/math/Coordinates.cpp',
+  'src/math/Links.cpp',
+  'src/math/Vectors.cpp',
+  'src/utils/Print.cpp'
   ])
 
 engine_lib = library(
