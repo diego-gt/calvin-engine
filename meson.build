@@ -17,11 +17,18 @@ engine_sources = files([
   'src/utils/Print.cpp'
   ])
 
+# dependencies
+imgui_proj = subproject('imgui')
+imgui_dep = imgui_proj.get_variable('imgui_dep')
+glfw3_dep = dependency('glfw3', version : '>=3.3')
+vulkan_dep = dependency('vulkan', version : '>=1.2')
+
 engine_lib = library(
   'calvin_engine',
   engine_sources,
   install : false,
-  include_directories : engine_includes
+  include_directories : engine_includes,
+  dependencies : [ imgui_dep, glfw3_dep, vulkan_dep ]
   )
 
 engine_lib_dep = declare_dependency(
