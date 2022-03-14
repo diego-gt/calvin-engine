@@ -12,7 +12,9 @@ engine_includes = include_directories('include')
 engine_sources = files([
   'src/math/Angle.cpp',
   'src/math/Coordinates.cpp',
-  'src/math/Vectors.cpp',
+  'src/math/Vector2D.cpp',
+  'src/math/Joint2D.cpp',
+  'src/math/Link2D.cpp',
   'src/utils/Print.cpp'
   ])
 
