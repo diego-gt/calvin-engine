@@ -4,20 +4,19 @@
 #include "math/Coordinates.hpp"
 #include "utils/Visibility.hpp"
 
-// Vectors impl
 namespace usc::math {
-class API_EXPORT Vector2 {
+class API_EXPORT Vector2D {
 public:
     // Print debug info
     void PrintInfo();
 
-    Vector2() = default;
+    Vector2D() = default;
 
     // Create a vector using two points
-    Vector2(Cartesian2 start, Cartesian2 end);
+    Vector2D(Cartesian2 start, Cartesian2 end);
 
     // Using an origin, length and angle from the horizontal axis
-    Vector2(Cartesian2 origin, double length, Angle angle);
+    Vector2D(Cartesian2 origin, double length, Angle angle);
 
     // Get the starting point of the vector
     Cartesian2 Origin() { return m_start; }
