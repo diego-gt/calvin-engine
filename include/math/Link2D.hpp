@@ -11,7 +11,7 @@ public:
     {
     }
 
-    void Rotate(double angle, AngleType at);
+    void Rotate(f64 angle, AngleType angle_type);
 
 private:
     Joint2D* m_joint_tail;

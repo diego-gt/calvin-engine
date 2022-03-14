@@ -2,9 +2,9 @@
 #include "math/Angle.hpp"
 
 namespace usc::math {
-void Joint2D::Rotate(double angle, AngleType at)
+void Joint2D::Rotate(double angle, AngleType angle_type)
 {
-    m_vector->Rotate(angle, at);
+    m_vector->Rotate(angle, angle_type);
 }
 
 void Joint2D::Translate(Cartesian2 new_origin)

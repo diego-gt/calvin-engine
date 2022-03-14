@@ -6,23 +6,23 @@
 // Primitives & helper functions
 namespace usc::math {
 struct API_EXPORT Cartesian2 {
-    double x, y;
+    f64 x, y;
 };
 
 const Cartesian2 OriginPoint2 { 0, 0 };
 
 struct API_EXPORT Cartesian3 {
-    double x, y, z;
+    f64 x, y, z;
 };
 
 const Cartesian3 OriginPoint3 { 0, 0, 0 };
 
 struct API_EXPORT Polar {
-    double radius;
+    f64 radius;
     Angle theta;
 };
 
-API_EXPORT double DistanceBetweenCartesian2(Cartesian2 a, Cartesian2 b);
+API_EXPORT f64 DistanceBetweenCartesian2(Cartesian2 a, Cartesian2 b);
 API_EXPORT Angle AngleBetweenCartesian2(Cartesian2 a, Cartesian2 b);
 } // namespace usc::math
 

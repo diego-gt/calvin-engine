@@ -11,7 +11,7 @@ Vector2D::Vector2D(Cartesian2 start, Cartesian2 end)
     m_angle = AngleBetweenCartesian2(start, end);
 }
 
-Vector2D::Vector2D(Cartesian2 origin, double length, Angle angle)
+Vector2D::Vector2D(Cartesian2 origin, f64 length, Angle angle)
 {
     m_length = length;
     m_angle = angle;
@@ -19,7 +19,7 @@ Vector2D::Vector2D(Cartesian2 origin, double length, Angle angle)
     m_end = conv::PolarToCartesian2(m_start, Polar { m_length, m_angle });
 }
 
-void Vector2D::Rotate(double rotation, AngleType angle_type)
+void Vector2D::Rotate(f64 rotation, AngleType angle_type)
 {
     m_angle.Set(rotation, angle_type);
     m_end = conv::PolarToCartesian2(m_start, Polar { m_length, m_angle });
@@ -35,7 +35,7 @@ void Vector2D::RotateTo(Angle angle)
     m_end = conv::PolarToCartesian2(m_start, Polar { m_length, m_angle });
 }
 
-void Vector2D::Resize(double length)
+void Vector2D::Resize(f64 length)
 {
     m_length = length;
 

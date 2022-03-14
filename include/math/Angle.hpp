@@ -1,5 +1,6 @@
 #pragma once
 
+#include "utils/Types.hpp"
 #include "utils/Visibility.hpp"
 
 namespace usc::math {
@@ -8,24 +9,24 @@ enum AngleType { Radians,
 
 class API_EXPORT Angle {
 public:
-    Angle(double value, AngleType at);
+    Angle(f64 value, AngleType angle_type);
     Angle() = default;
 
     // Get angle value in Degrees
-    double Degrees();
+    f64 Degrees();
 
     // Get angle value in Radians
-    double Radians();
+    f64 Radians();
 
     // Change angle value
-    void Set(double value, AngleType at);
+    void Set(f64 value, AngleType at);
 
 private:
-    double m_degrees { 0 }, m_radians { 0 };
+    f64 m_degrees { 0 }, m_radians { 0 };
 };
 } // namespace usc::math
 
 namespace usc::conv {
-API_EXPORT double DegreesToRadians(double value);
-API_EXPORT double RadiansToDegrees(double value);
+API_EXPORT f64 DegreesToRadians(f64 value);
+API_EXPORT f64 RadiansToDegrees(f64 value);
 } // namespace usc::conv

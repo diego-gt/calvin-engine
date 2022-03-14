@@ -10,7 +10,7 @@ public:
     {
     }
 
-    void Rotate(double angle, AngleType at);
+    void Rotate(f64 angle, AngleType angle_type);
 
     Cartesian2 Endpoint() { return m_vector->End(); }
 
