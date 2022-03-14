@@ -19,9 +19,9 @@ Vector2D::Vector2D(Cartesian2 origin, double length, Angle angle)
     m_end = conv::PolarToCartesian2(m_start, Polar { m_length, m_angle });
 }
 
-void Vector2D::Rotate(double rotation, AngleType at)
+void Vector2D::Rotate(double rotation, AngleType angle_type)
 {
-    m_angle.Set(rotation, at);
+    m_angle.Set(rotation, angle_type);
     m_end = conv::PolarToCartesian2(m_start, Polar { m_length, m_angle });
 }
 

@@ -13,6 +13,7 @@ public:
 
     // Get angle value in Degrees
     double Degrees();
+
     // Get angle value in Radians
     double Radians();
 

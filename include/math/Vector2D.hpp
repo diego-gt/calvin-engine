@@ -34,7 +34,7 @@ public:
     void RotateTo(Angle angle);
 
     // Rotate vector by value
-    void Rotate(double rotation, AngleType at);
+    void Rotate(double rotation, AngleType angle_type);
 
     // Change the current length of the vector
     void Resize(double length);
