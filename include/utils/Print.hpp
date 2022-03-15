@@ -1,6 +1,6 @@
 #pragma once
 
-#include "utils/Visibility.hpp"
+#include "core/Visibility.hpp"
 
 #include <string>
 

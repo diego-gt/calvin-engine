@@ -1,7 +1,7 @@
 #pragma once
 
-#include "utils/Types.hpp"
-#include "utils/Visibility.hpp"
+#include "core/Types.hpp"
+#include "core/Visibility.hpp"
 
 namespace usc::math {
 enum AngleType { Radians,

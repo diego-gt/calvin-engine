@@ -2,7 +2,7 @@
 
 #include "math/Angle.hpp"
 #include "math/Coordinates.hpp"
-#include "utils/Visibility.hpp"
+#include "core/Visibility.hpp"
 
 namespace usc::math {
 class API_EXPORT Vector2D {
