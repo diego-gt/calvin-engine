@@ -15,7 +15,8 @@ engine_sources = files([
   'src/math/Vector2D.cpp',
   'src/math/Joint2D.cpp',
   'src/math/Link2D.cpp',
-  'src/utils/Print.cpp'
+  'src/utils/Print.cpp',
+  'src/vk/Start.cpp'
   ])
 
 # dependencies
@@ -23,13 +24,14 @@ imgui_proj = subproject('imgui')
 imgui_dep = imgui_proj.get_variable('imgui_dep')
 glfw3_dep = dependency('glfw3', version : '>=3.3')
 vulkan_dep = dependency('vulkan', version : '>=1.2')
+glm_dep = dependency('glm', version : '>=0.9')
 
 engine_lib = library(
   'calvin_engine',
   engine_sources,
   install : false,
   include_directories : engine_includes,
-  dependencies : [ imgui_dep, glfw3_dep, vulkan_dep ]
+  dependencies : [ imgui_dep, glfw3_dep, glm_dep, vulkan_dep ]
   )
 
 engine_lib_dep = declare_dependency(
@@ -41,5 +43,13 @@ demo = executable(
   'jpl',
   'jpl/src/main.cpp',
   include_directories : engine_includes,
+  link_with : engine_lib
+  )
+
+vk = executable(
+  'vkdemo',
+  'jpl/src/vk.cpp',
+  include_directories : engine_includes,
+  dependencies : [ glfw3_dep, glm_dep, vulkan_dep ],
   link_with : engine_lib
   )
