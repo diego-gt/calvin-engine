@@ -1,8 +1,8 @@
 #pragma once
 
+#include "core/Visibility.hpp"
 #include "math/Angle.hpp"
 #include "math/Coordinates.hpp"
-#include "core/Visibility.hpp"
 
 namespace usc::math {
 class API_EXPORT Vector2D {
