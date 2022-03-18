@@ -1,5 +1,5 @@
 # replace with your desired build directory name if you want to contribute
-build/
+build*/
 
 # editors
 .idea
