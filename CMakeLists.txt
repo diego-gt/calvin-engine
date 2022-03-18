@@ -8,8 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # To use with LSPs
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-set(
-        ENGINE_INCLUDES
+set(ENGINE_INCLUDES
         include/core/Types.hpp
         include/core/Visibility.hpp
         include/math/Angle.hpp
@@ -20,8 +19,7 @@ set(
         include/utils/Print.hpp
 )
 
-set(
-        ENGINE_SOURCES
+set(ENGINE_SOURCES
         src/math/Angle.cpp
         src/math/Coordinates.cpp
         src/math/Vector2D.cpp
@@ -30,8 +28,7 @@ set(
         src/utils/Print.cpp
 )
 
-add_library(
-        calvin_engine
+add_library(calvin_engine
         ${ENGINE_INCLUDES}
         ${ENGINE_SOURCES}
 )
@@ -47,16 +44,12 @@ target_link_libraries(calvin_engine PRIVATE ${Vulkan_LIBRARY})
 target_link_libraries(calvin_engine PRIVATE glfw)
 target_link_libraries(calvin_engine PRIVATE glm::glm)
 
-set(
-        DEMO_SOURCES
+set(DEMO_SOURCES
         jpl/src/main.cpp
 )
 
-add_executable(
-        jpl
+add_executable(jpl
         ${DEMO_SOURCES}
 )
 
-target_link_libraries(
-        jpl PRIVATE calvin_engine
-)
+target_link_libraries(jpl PRIVATE calvin_engine)
