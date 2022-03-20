@@ -60,6 +60,9 @@ add_executable(vkdemo
         jpl/src/vk.cpp
 )
 
+target_include_directories(vkdemo PRIVATE ${Vulkan_INCLUDE_DIRS})
+
+target_link_libraries(vkdemo PRIVATE calvin_engine)
 target_link_libraries(vkdemo PRIVATE ${Vulkan_LIBRARY})
 target_link_libraries(vkdemo PRIVATE glfw)
 target_link_libraries(vkdemo PRIVATE glm::glm)
