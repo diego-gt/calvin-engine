@@ -1,9 +1,16 @@
 #include "vk/Start.hpp"
+#include <iostream>
 
-int main() {
+int main()
+{
     usc::vk::Application app("Test", 800, 600);
 
-    app.Run();
+    try {
+        app.Run();
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << std::endl;
+        return EXIT_FAILURE;
+    }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
