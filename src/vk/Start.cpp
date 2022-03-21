@@ -12,6 +12,7 @@ Application::Application(std::string title, i16 width, i16 height)
 {
     m_window = nullptr;
     m_instance = nullptr;
+    m_debug_messenger = {};
 }
 
 void Application::Run()
@@ -34,6 +35,7 @@ void Application::InitializeVulkan()
 {
     CreateVulkanInstance();
     SetupDebugMessenger();
+    PickPhysicalDevice();
 }
 
 void Application::MainLoop()
@@ -173,6 +175,7 @@ void Application::SetupDebugMessenger()
         throw std::runtime_error("failed to set up debug messenger!");
     }
 }
+
 VkResult Application::CreateDebugUtilsMessengerEXT(VkInstance instance,
     const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo,
     const VkAllocationCallbacks* pAllocator,
@@ -186,6 +189,7 @@ VkResult Application::CreateDebugUtilsMessengerEXT(VkInstance instance,
         return VK_ERROR_EXTENSION_NOT_PRESENT;
     }
 }
+
 void Application::DestroyDebugUtilsMessengerEXT(VkInstance instance,
     VkDebugUtilsMessengerEXT debugMessenger,
     const VkAllocationCallbacks* pAllocator)
@@ -196,6 +200,7 @@ void Application::DestroyDebugUtilsMessengerEXT(VkInstance instance,
         func(instance, debugMessenger, pAllocator);
     }
 }
+
 void Application::PopulateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& createInfo)
 {
     createInfo = {};
@@ -209,6 +214,41 @@ void Application::PopulateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateIn
         | VK_DEBUG_UTILS_MESSAGE_TYPE_PERFORMANCE_BIT_EXT;
 
     createInfo.pfnUserCallback = m_debug_callback;
+}
+
+void Application::PickPhysicalDevice()
+{
+    u32 physicalDevicesCount = 0;
+    vkEnumeratePhysicalDevices(m_instance, &physicalDevicesCount, nullptr);
+    if (physicalDevicesCount == 0) {
+        throw std::runtime_error("failed to find GPUs with Vulkan support");
+    }
+
+    std::vector<VkPhysicalDevice> physicalDevices(physicalDevicesCount);
+    vkEnumeratePhysicalDevices(m_instance, &physicalDevicesCount, physicalDevices.data());
+
+    for (const auto& device : physicalDevices) {
+        if (IsPhysicalDeviceSuitable(device)) {
+            m_physical_device = device;
+            break;
+        }
+    }
+
+    if (m_physical_device == VK_NULL_HANDLE) {
+        throw std::runtime_error("failed to find a suitable GPU!");
+    }
+}
+
+bool Application::IsPhysicalDeviceSuitable(VkPhysicalDevice device)
+{
+    VkPhysicalDeviceProperties deviceProperties;
+    VkPhysicalDeviceFeatures deviceFeatures;
+    vkGetPhysicalDeviceProperties(device, &deviceProperties);
+    vkGetPhysicalDeviceFeatures(device, &deviceFeatures);
+
+    // filter: only dedicated graphics cards that support geometry shaders
+    return deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU
+        && deviceFeatures.geometryShader;
 }
 
 }

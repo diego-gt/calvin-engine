@@ -22,6 +22,8 @@ private:
 
     // background activities
     void CreateVulkanInstance();
+    void PickPhysicalDevice();
+    static bool IsPhysicalDeviceSuitable(VkPhysicalDevice device);
 
     // debugging (messenger and callbacks)
     bool CheckValidationLayerSupport();
@@ -44,7 +46,7 @@ private:
         VkDebugUtilsMessengerEXT debugMessenger,
         const VkAllocationCallbacks* pAllocator);
 
-    void PopulateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& createInfo);
+    static void PopulateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& createInfo);
 
     // ++ data ++ //
     // glfw
@@ -54,6 +56,7 @@ private:
 
     // vulkan
     VkInstance m_instance;
+    VkPhysicalDevice m_physical_device = VK_NULL_HANDLE;
     VkDebugUtilsMessengerEXT m_debug_messenger;
 
     const std::vector<const char*> m_validation_layers = { "VK_LAYER_KHRONOS_validation" };
