@@ -4,8 +4,7 @@
 #include "core/Visibility.hpp"
 
 namespace usc::math {
-enum AngleType { Radians,
-    Degrees };
+enum AngleType { Radians, Degrees };
 
 class API_EXPORT Angle {
 public:

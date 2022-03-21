@@ -28,8 +28,6 @@ API_EXPORT Angle AngleBetweenCartesian2(Cartesian2 a, Cartesian2 b);
 
 // functions to convert between primitive types
 namespace usc::conv {
-API_EXPORT math::Polar Cartesian2ToPolar(math::Cartesian2 origin,
-    math::Cartesian2 value);
-API_EXPORT math::Cartesian2 PolarToCartesian2(math::Cartesian2 origin,
-    math::Polar value);
+API_EXPORT math::Polar Cartesian2ToPolar(math::Cartesian2 origin, math::Cartesian2 value);
+API_EXPORT math::Cartesian2 PolarToCartesian2(math::Cartesian2 origin, math::Polar value);
 } // namespace usc::conv
