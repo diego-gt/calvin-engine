@@ -48,7 +48,7 @@ private:
     bool CheckValidationLayerSupport();
 
     // Gets required Vulkan extensions for GLFW and validation layer support.
-    std::vector<const char*> GetRequiredExtensions();
+    [[nodiscard]] std::vector<const char*> GetRequiredVulkanExtensions() const;
 
     // Formats and prints out debug info from validation layers.
     static VKAPI_ATTR VkBool32 VKAPI_CALL m_debug_callback(
