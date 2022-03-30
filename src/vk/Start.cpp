@@ -74,7 +74,7 @@ void Application::CreateVulkanInstance()
     instanceCreateInfo.pApplicationInfo = &appInfo;
 
     // Get GLFW extensions + (if enabled) the validation layers
-    auto extensions = GetRequiredExtensions();
+    auto extensions = GetRequiredVulkanExtensions();
 
     instanceCreateInfo.enabledExtensionCount = static_cast<u32>(extensions.size());
     instanceCreateInfo.ppEnabledExtensionNames = extensions.data();
@@ -138,7 +138,7 @@ bool Application::CheckValidationLayerSupport()
     return true;
 }
 
-std::vector<const char*> Application::GetRequiredExtensions()
+std::vector<const char*> Application::GetRequiredVulkanExtensions() const
 {
     u32 glfwExtensionCount = 0;
     const char** glfwExtensions;
@@ -246,8 +246,9 @@ bool Application::IsPhysicalDeviceSuitable(VkPhysicalDevice device)
     vkGetPhysicalDeviceProperties(device, &deviceProperties);
     vkGetPhysicalDeviceFeatures(device, &deviceFeatures);
 
-    // filter: only dedicated graphics cards that support geometry shaders
-    return deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU
+    // filter: only graphics cards that support geometry shaders
+    return (deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU
+               || deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU)
         && deviceFeatures.geometryShader;
 }
 
