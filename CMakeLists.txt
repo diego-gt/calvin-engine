@@ -17,6 +17,7 @@ set(ENGINE_INCLUDES
         include/math/Link2D.hpp
         include/math/Vector2D.hpp
         include/utils/Print.hpp
+        include/vk/Queues.hpp
         include/vk/Start.hpp
 )
 
@@ -27,6 +28,7 @@ set(ENGINE_SOURCES
         src/math/Joint2D.cpp
         src/math/Link2D.cpp
         src/utils/Print.cpp
+        src/vk/Queues.cpp
         src/vk/Start.cpp
 )
 
