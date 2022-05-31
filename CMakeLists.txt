@@ -18,7 +18,7 @@ set(ENGINE_INCLUDES
         include/math/Vector2D.hpp
         include/utils/Print.hpp
         include/vk/Start.hpp
-)
+        include/vk/Queues.hpp)
 
 set(ENGINE_SOURCES
         src/math/Angle.cpp
@@ -28,12 +28,12 @@ set(ENGINE_SOURCES
         src/math/Link2D.cpp
         src/utils/Print.cpp
         src/vk/Start.cpp
-)
+        src/vk/Queues.cpp)
 
 add_library(calvin_engine
         ${ENGINE_INCLUDES}
         ${ENGINE_SOURCES}
-)
+        )
 
 find_package(glfw3 3.3 REQUIRED)
 find_package(Vulkan REQUIRED)
@@ -48,17 +48,17 @@ target_link_libraries(calvin_engine PRIVATE glm::glm)
 
 set(DEMO_SOURCES
         jpl/src/main.cpp
-)
+        )
 
 add_executable(jpl
         ${DEMO_SOURCES}
-)
+        )
 
 target_link_libraries(jpl PRIVATE calvin_engine)
 
 add_executable(vkdemo
         jpl/src/vk.cpp
-)
+        )
 
 target_include_directories(vkdemo PRIVATE ${Vulkan_INCLUDE_DIRS})
 
