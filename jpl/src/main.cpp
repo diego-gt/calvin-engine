@@ -1,10 +1,8 @@
 #include "math/Joint2D.hpp"
 #include "math/Link2D.hpp"
 #include "math/Vector2D.hpp"
-#include "utils/Print.hpp"
 
 namespace um = usc::math;
-namespace ut = usc::txt;
 
 int main()
 {
@@ -21,18 +19,15 @@ int main()
     um::Link2D l2(&j2, &j3);
     um::Link2D l3(&j3, nullptr);
 
-    vec1.PrintInfo();
-    vec2.PrintInfo();
-    vec3.PrintInfo();
+    vec1.Debug();
+    vec2.Debug();
+    vec3.Debug();
 
     l2.Rotate(-45, um::AngleType::Degrees);
 
-    ut::Println("");
-    ut::Println("");
-
-    vec1.PrintInfo();
-    vec2.PrintInfo();
-    vec3.PrintInfo();
+    vec1.Debug();
+    vec2.Debug();
+    vec3.Debug();
 
     return 0;
 }
