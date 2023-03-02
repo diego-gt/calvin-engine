@@ -8,7 +8,7 @@ namespace usc::math {
 class API_EXPORT Vector2D {
 public:
     // Print debug info
-    void PrintInfo();
+    void Debug();
 
     Vector2D() = default;
 
