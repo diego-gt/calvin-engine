@@ -31,17 +31,9 @@ add_library(calvin_engine
         ${ENGINE_SOURCES}
 )
 
-find_package(glfw3 3.3 REQUIRED)
-find_package(Vulkan REQUIRED)
-find_package(glm CONFIG)
 find_package(fmt REQUIRED)
 
 target_include_directories(calvin_engine PUBLIC include)
-target_include_directories(calvin_engine PRIVATE ${Vulkan_INCLUDE_DIRS})
-
-target_link_libraries(calvin_engine PRIVATE ${Vulkan_LIBRARY})
-target_link_libraries(calvin_engine PRIVATE glfw)
-target_link_libraries(calvin_engine PRIVATE glm::glm)
 target_link_libraries(calvin_engine PRIVATE fmt::fmt)
 
 set(DEMO_SOURCES
