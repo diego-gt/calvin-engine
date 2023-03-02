@@ -1,5 +1,6 @@
 #include "math/Vector2D.hpp"
 
+#include <fmt/core.h>
 #include <iostream>
 
 namespace usc::math {
@@ -49,13 +50,13 @@ void Vector2D::Translate(Cartesian2 origin)
     m_end = conv::PolarToCartesian2(m_start, Polar { m_length, m_angle });
 }
 
-void Vector2D::PrintInfo()
+void Vector2D::Debug()
 {
-    std::cout << "Vector2D:\n"
-              << "\tX: (" << m_start.x << ", " << m_start.y << ")\n"
-              << "\tY: (" << m_end.x << ", " << m_end.y << ")\n"
-              << "\tLength: " << m_length << "\n"
-              << "\tAngle (deg): " << m_angle.Degrees() << "\n"
-              << "\tAngle (rad): " << m_angle.Radians() << "\n";
+    fmt::println("== Vector2D Debug Information ==");
+    fmt::println("X: ({:.2}, {:.2})", m_start.x, m_start.y);
+    fmt::println("Y: ({:.2}, {:.2})", m_start.x, m_start.y);
+    fmt::println("Length: {}", m_length);
+    fmt::println("Angle (deg): {:.2}", m_angle.Degrees());
+    fmt::println("Angle (rad): {:.2}", m_angle.Radians());
 }
 } // namespace usc::math
