@@ -16,7 +16,6 @@ set(ENGINE_INCLUDES
         include/math/Joint2D.hpp
         include/math/Link2D.hpp
         include/math/Vector2D.hpp
-        include/utils/Print.hpp
 )
 
 set(ENGINE_SOURCES
@@ -25,7 +24,6 @@ set(ENGINE_SOURCES
         src/math/Vector2D.cpp
         src/math/Joint2D.cpp
         src/math/Link2D.cpp
-        src/utils/Print.cpp
 )
 
 add_library(calvin_engine
@@ -36,6 +34,7 @@ add_library(calvin_engine
 find_package(glfw3 3.3 REQUIRED)
 find_package(Vulkan REQUIRED)
 find_package(glm CONFIG)
+find_package(fmt REQUIRED)
 
 target_include_directories(calvin_engine PUBLIC include)
 target_include_directories(calvin_engine PRIVATE ${Vulkan_INCLUDE_DIRS})
@@ -43,6 +42,7 @@ target_include_directories(calvin_engine PRIVATE ${Vulkan_INCLUDE_DIRS})
 target_link_libraries(calvin_engine PRIVATE ${Vulkan_LIBRARY})
 target_link_libraries(calvin_engine PRIVATE glfw)
 target_link_libraries(calvin_engine PRIVATE glm::glm)
+target_link_libraries(calvin_engine PRIVATE fmt::fmt)
 
 set(DEMO_SOURCES
         jpl/src/main.cpp
