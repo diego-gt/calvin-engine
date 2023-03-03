@@ -1,12 +1,10 @@
 #include "math/Angle.hpp"
+#include "math/core.h"
 
 namespace convert {
-// TODO: move this constant to a more logical place
-const f64 pi = 3.14159265358979323846;
+f64 DegreesToRadians(f64 value) { return value * (math::PI / 180); }
 
-f64 DegreesToRadians(f64 value) { return value * (pi / 180); }
-
-f64 RadiansToDegrees(f64 value) { return value * (180 / pi); }
+f64 RadiansToDegrees(f64 value) { return value * (180 / math::PI); }
 } // namespace usc::conv
 
 namespace math {

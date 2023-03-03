@@ -13,6 +13,7 @@ set(ENGINE_INCLUDES
         include/core/Visibility.hpp
         include/math/Angle.hpp
         include/math/Coordinates.hpp
+        include/math/core.h
         include/math/Joint2D.hpp
         include/math/Link2D.hpp
         include/math/Vector2D.hpp
