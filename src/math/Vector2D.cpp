@@ -55,7 +55,8 @@ void Vector2D::Debug()
 {
     fmt::println("== Vector2D Debug Information ==");
     fmt::println("X: ({:.2}, {:.2})", m_start.x, m_start.y);
-    fmt::println("Y: ({:.2}, {:.2})", m_start.x, m_start.y);
+    fmt::println("Y: ({:.2}, {:.2})", m_end.x, m_end.y);
+    // FIXME: length is not calculated properly
     fmt::println("Length: {}", m_length);
     fmt::println("Angle (deg): {:.2}", convert::RadiansToDegrees(m_angle.value()));
     fmt::println("Angle (rad): {:.2}", m_angle.value());
