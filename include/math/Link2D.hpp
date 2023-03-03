@@ -2,7 +2,7 @@
 
 #include "math/Joint2D.hpp"
 
-namespace usc::math {
+namespace math {
 class API_EXPORT Link2D {
 public:
     Link2D(Joint2D* joint_tail, Joint2D* joint_head)
@@ -11,7 +11,7 @@ public:
     {
     }
 
-    void Rotate(f64 angle, AngleType angle_type);
+    void Rotate(f64 angle);
 
 private:
     Joint2D* m_joint_tail;

@@ -4,7 +4,7 @@
 #include "math/Angle.hpp"
 
 // Primitives & helper functions
-namespace usc::math {
+namespace math {
 struct API_EXPORT Cartesian2 {
     f64 x, y;
 };
@@ -27,7 +27,7 @@ API_EXPORT Angle AngleBetweenCartesian2(Cartesian2 a, Cartesian2 b);
 } // namespace usc::math
 
 // functions to convert between primitive types
-namespace usc::conv {
+namespace convert {
 API_EXPORT math::Polar Cartesian2ToPolar(math::Cartesian2 origin,
     math::Cartesian2 value);
 API_EXPORT math::Cartesian2 PolarToCartesian2(math::Cartesian2 origin,

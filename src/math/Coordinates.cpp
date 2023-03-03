@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-namespace usc::math {
+namespace math {
 f64 DistanceBetweenCartesian2(Cartesian2 a, Cartesian2 b)
 {
     f64 delta_x = b.x - a.x;
@@ -16,11 +16,11 @@ Angle AngleBetweenCartesian2(Cartesian2 a, Cartesian2 b)
     f64 delta_x = b.x - a.x;
     f64 delta_y = b.y - a.y;
 
-    return Angle(atan2(delta_y, delta_x), AngleType::Radians);
+    return Angle(atan2(delta_y, delta_x));
 }
 } // namespace usc::math
 
-namespace usc::conv {
+namespace convert {
 math::Polar Cartesian2ToPolar(math::Cartesian2 origin, math::Cartesian2 value)
 {
     f64 radius = math::DistanceBetweenCartesian2(origin, value);
@@ -31,8 +31,8 @@ math::Polar Cartesian2ToPolar(math::Cartesian2 origin, math::Cartesian2 value)
 
 math::Cartesian2 PolarToCartesian2(math::Cartesian2 origin, math::Polar value)
 {
-    f64 x = value.radius * cos(value.theta.Radians());
-    f64 y = value.radius * sin(value.theta.Radians());
+    f64 x = value.radius * cos(value.theta.value());
+    f64 y = value.radius * sin(value.theta.value());
 
     return math::Cartesian2 { x + origin.x, y + origin.y };
 }

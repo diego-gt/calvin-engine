@@ -1,10 +1,10 @@
 #include "math/Joint2D.hpp"
 #include "math/Angle.hpp"
 
-namespace usc::math {
-void Joint2D::Rotate(double angle, AngleType angle_type)
+namespace math {
+void Joint2D::Rotate(double angle)
 {
-    m_vector->Rotate(angle, angle_type);
+    m_vector->Rotate(angle);
 }
 
 void Joint2D::Translate(Cartesian2 new_origin)

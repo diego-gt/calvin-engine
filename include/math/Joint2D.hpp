@@ -2,7 +2,7 @@
 
 #include "math/Vector2D.hpp"
 
-namespace usc::math {
+namespace math {
 class API_EXPORT Joint2D {
 public:
     Joint2D(Vector2D* vec)
@@ -10,7 +10,7 @@ public:
     {
     }
 
-    void Rotate(f64 angle, AngleType angle_type);
+    void Rotate(f64 angle);
 
     Cartesian2 Endpoint() { return m_vector->End(); }
 

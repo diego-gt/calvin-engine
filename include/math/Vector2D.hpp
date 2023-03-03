@@ -4,7 +4,7 @@
 #include "math/Angle.hpp"
 #include "math/Coordinates.hpp"
 
-namespace usc::math {
+namespace math {
 class API_EXPORT Vector2D {
 public:
     // Print debug info
@@ -34,7 +34,7 @@ public:
     void RotateTo(Angle angle);
 
     // Rotate vector by value
-    void Rotate(f64 rotation, AngleType angle_type);
+    void Rotate(f64 rotation);
 
     // Change the current length of the vector
     void Resize(f64 length);
@@ -45,6 +45,6 @@ public:
 private:
     Cartesian2 m_start { 0, 0 }, m_end { 0, 0 };
     f64 m_length { 0 };
-    Angle m_angle { 0, AngleType::Degrees };
+    Angle m_angle { 0 };
 };
-} // namespace usc::math
+} // namespace math

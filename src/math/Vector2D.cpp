@@ -1,9 +1,10 @@
 #include "math/Vector2D.hpp"
+#include "math/Angle.hpp"
 
 #include <fmt/core.h>
 #include <iostream>
 
-namespace usc::math {
+namespace math {
 Vector2D::Vector2D(Cartesian2 start, Cartesian2 end)
 {
     m_start = start;
@@ -17,13 +18,13 @@ Vector2D::Vector2D(Cartesian2 origin, f64 length, Angle angle)
     m_length = length;
     m_angle = angle;
     m_start = origin;
-    m_end = conv::PolarToCartesian2(m_start, Polar { m_length, m_angle });
+    m_end = convert::PolarToCartesian2(m_start, Polar { m_length, m_angle });
 }
 
-void Vector2D::Rotate(f64 rotation, AngleType angle_type)
+void Vector2D::Rotate(f64 rotation)
 {
-    m_angle.Set(rotation, angle_type);
-    m_end = conv::PolarToCartesian2(m_start, Polar { m_length, m_angle });
+    m_angle.Set(rotation);
+    m_end = convert::PolarToCartesian2(m_start, Polar { m_length, m_angle });
 }
 
 void Vector2D::RotateTo(Angle angle)
@@ -33,21 +34,21 @@ void Vector2D::RotateTo(Angle angle)
     // recalculate the endpoint Length and origin stay the same
     m_angle = angle;
 
-    m_end = conv::PolarToCartesian2(m_start, Polar { m_length, m_angle });
+    m_end = convert::PolarToCartesian2(m_start, Polar { m_length, m_angle });
 }
 
 void Vector2D::Resize(f64 length)
 {
     m_length = length;
 
-    m_end = conv::PolarToCartesian2(m_start, Polar { m_length, m_angle });
+    m_end = convert::PolarToCartesian2(m_start, Polar { m_length, m_angle });
 }
 
 void Vector2D::Translate(Cartesian2 origin)
 {
     m_start = origin;
 
-    m_end = conv::PolarToCartesian2(m_start, Polar { m_length, m_angle });
+    m_end = convert::PolarToCartesian2(m_start, Polar { m_length, m_angle });
 }
 
 void Vector2D::Debug()
@@ -56,7 +57,7 @@ void Vector2D::Debug()
     fmt::println("X: ({:.2}, {:.2})", m_start.x, m_start.y);
     fmt::println("Y: ({:.2}, {:.2})", m_start.x, m_start.y);
     fmt::println("Length: {}", m_length);
-    fmt::println("Angle (deg): {:.2}", m_angle.Degrees());
-    fmt::println("Angle (rad): {:.2}", m_angle.Radians());
+    fmt::println("Angle (deg): {:.2}", convert::RadiansToDegrees(m_angle.value()));
+    fmt::println("Angle (rad): {:.2}", m_angle.value());
 }
 } // namespace usc::math
