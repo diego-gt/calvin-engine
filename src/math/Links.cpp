@@ -1,7 +1,7 @@
-#include "math/Link2D.hpp"
+#include "math/Links.h"
 
 namespace math {
-void Link2D::Rotate(double angle)
+void Link2::Rotate(double angle)
 {
     m_joint_tail->Rotate(angle);
     if (m_joint_head != nullptr) {

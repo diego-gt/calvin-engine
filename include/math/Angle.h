@@ -1,7 +1,7 @@
 #pragma once
 
-#include "core/Types.hpp"
-#include "core/Visibility.hpp"
+#include "core/Types.h"
+#include "core/Visibility.h"
 
 namespace math {
 using Angle = f64;

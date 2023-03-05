@@ -1,22 +1,22 @@
 #pragma once
 
-#include "core/Visibility.hpp"
-#include "math/Angle.hpp"
-#include "math/Coordinates.hpp"
+#include "core/Visibility.h"
+#include "math/Angle.h"
+#include "math/Coordinates.h"
 
 namespace math {
-class API_EXPORT Vector2D {
+class API_EXPORT Vector2 {
 public:
     // Print debug info
     void Debug();
 
-    Vector2D() = default;
+    Vector2() = default;
 
     // Create a vector using two points
-    Vector2D(Cartesian2 start, Cartesian2 end);
+    Vector2(Cartesian2 start, Cartesian2 end);
 
     // Using an origin, length and angle from the horizontal axis
-    Vector2D(Cartesian2 origin, f64 length, Angle angle);
+    Vector2(Cartesian2 origin, f64 length, Angle angle);
 
     // Get the starting point of the vector
     Cartesian2 Origin() { return m_start; }

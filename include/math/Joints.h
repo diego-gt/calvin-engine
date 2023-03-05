@@ -1,11 +1,11 @@
 #pragma once
 
-#include "math/Vector2D.hpp"
+#include "math/Vectors.h"
 
 namespace math {
-class API_EXPORT Joint2D {
+class API_EXPORT Joint2 {
 public:
-    Joint2D(Vector2D* vec)
+    Joint2(Vector2* vec)
         : m_vector(vec)
     {
     }
@@ -17,6 +17,6 @@ public:
     void Translate(Cartesian2 new_origin);
 
 private:
-    Vector2D* m_vector;
+    Vector2* m_vector;
 };
 }

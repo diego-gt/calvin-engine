@@ -9,22 +9,22 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(ENGINE_INCLUDES
-        include/core/Types.hpp
-        include/core/Visibility.hpp
-        include/math/Angle.hpp
-        include/math/Coordinates.hpp
+        include/core/Types.h
+        include/core/Visibility.h
+        include/math/Angle.h
+        include/math/Coordinates.h
         include/math/core.h
-        include/math/Joint2D.hpp
-        include/math/Link2D.hpp
-        include/math/Vector2D.hpp
+        include/math/Joints.h
+        include/math/Links.h
+        include/math/Vectors.h
 )
 
 set(ENGINE_SOURCES
         src/math/Angle.cpp
         src/math/Coordinates.cpp
-        src/math/Vector2D.cpp
-        src/math/Joint2D.cpp
-        src/math/Link2D.cpp
+        src/math/Vectors.cpp
+        src/math/Joints.cpp
+        src/math/Links.cpp
 )
 
 add_library(calvin_engine

@@ -1,4 +1,4 @@
-#include "math/Angle.hpp"
+#include "math/Angle.h"
 #include "math/core.h"
 
 namespace convert {

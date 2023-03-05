@@ -1,7 +1,7 @@
 #pragma once
 
-#include "core/Visibility.hpp"
-#include "math/Angle.hpp"
+#include "core/Visibility.h"
+#include "math/Angle.h"
 
 // Primitives & helper functions
 namespace math {
