@@ -15,9 +15,9 @@ Vector2D::Vector2D(Cartesian2 start, Cartesian2 end)
 
 Vector2D::Vector2D(Cartesian2 origin, f64 length, Angle angle)
 {
+    m_start = origin;
     m_length = length;
     m_angle = angle;
-    m_start = origin;
     m_end = convert::PolarToCartesian2(m_start, Polar { m_length, m_angle });
 }
 
