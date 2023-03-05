@@ -31,8 +31,8 @@ math::Polar Cartesian2ToPolar(math::Cartesian2 origin, math::Cartesian2 value)
 
 math::Cartesian2 PolarToCartesian2(math::Cartesian2 origin, math::Polar value)
 {
-    f64 x = value.radius * cos(value.theta.value());
-    f64 y = value.radius * sin(value.theta.value());
+    f64 x = value.radius * cos(value.theta);
+    f64 y = value.radius * sin(value.theta);
 
     return math::Cartesian2 { x + origin.x, y + origin.y };
 }
